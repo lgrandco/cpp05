@@ -1,5 +1,5 @@
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main() {
     print_color("ex00 tests");
@@ -35,15 +35,15 @@ int main() {
     } catch (std::exception& e) { e.what(); };
 
     print_color("\nex01 tests");
-    Form form_a("form_a", 50, 100);
+    AForm form_a("form_a", 50, 100);
     std::cout << get_color() << form_a << std::endl;
-    form_a.signForm(Bureaucrat("bureaucrat_too_low", 51));
-    form_a.signForm(Bureaucrat("bureaucrat_ok", 50));
-    form_a.signForm(Bureaucrat("bureaucrat_ok", 50));
+    form_a.signAForm(Bureaucrat("bureaucrat_too_low", 51));
+    form_a.signAForm(Bureaucrat("bureaucrat_ok", 50));
+    form_a.signAForm(Bureaucrat("bureaucrat_ok", 50));
     std::cout << get_color() << form_a << std::endl;
     print_color("\ntrying instantiate a form with a sign grade of 200 ----------------------");
     try {
-        Form form_b("Form with grade 200", 200, 100);
+        AForm form_b("AForm with grade 200", 200, 100);
     } catch (Bureaucrat::GradeTooHighException& e) {
         print_color(e.what());
     } catch (Bureaucrat::GradeTooLowException& e) {

@@ -1,13 +1,13 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(/* args */) : name("default_name"), sign_grade(100), exec_grade(100), _signed(false) {}
+AForm::AForm(/* args */) : name("default_name"), sign_grade(100), exec_grade(100), _signed(false) {}
 
-Form::Form(const Form& src)
+AForm::AForm(const AForm& src)
     : name(src.name), sign_grade(src.sign_grade), exec_grade(src.exec_grade), _signed(src._signed) {
-    // print_color("Default Form copy constructor called");
+    // print_color("Default AForm copy constructor called");
 }
 
-Form& Form::operator=(const Form& src) {
+AForm& AForm::operator=(const AForm& src) {
     _signed = src._signed;
     const_cast<std::string&>(name) = src.name;
     const_cast<int&>(sign_grade) = src.sign_grade;
@@ -15,26 +15,26 @@ Form& Form::operator=(const Form& src) {
     return *this;
 }
 
-Form::~Form() { // print_color("Form destructor called");
+AForm::~AForm() { // print_color("AForm destructor called");
 }
 
-Form::Form(std::string name, int sign_grade, int exec_grade)
+AForm::AForm(std::string name, int sign_grade, int exec_grade)
     : name(name), sign_grade(sign_grade), exec_grade(exec_grade), _signed(false) {
     if (sign_grade < 1 || exec_grade < 1) throw Bureaucrat::GradeTooHighException();
     if (sign_grade > 150 || exec_grade > 150) throw Bureaucrat::GradeTooLowException();
 }
 
-void Form::beSigned(Bureaucrat bureaucrat) {
+void AForm::beSigned(Bureaucrat bureaucrat) {
     if (bureaucrat.getGrade() <= sign_grade) {
         _signed = true;
     } else throw Bureaucrat::GradeTooLowException();
 }
 
-void Form::signForm(Bureaucrat bureaucrat) {
+void AForm::signAForm(Bureaucrat bureaucrat) {
     if (_signed)
         print_color(
             bureaucrat.getName() + " couldn't sign " + this->name +
-            " because the form is already signed"
+            " because the Aform is already signed"
         );
     else {
         try {
@@ -47,15 +47,15 @@ void Form::signForm(Bureaucrat bureaucrat) {
             );
         } catch (std::exception& e) { e.what(); };
     }
-}
+};
 
-int Form::getSign_grade() { return sign_grade; }
-int Form::getExec_grade() { return exec_grade; }
-std::string Form::getName() { return name; }
-bool Form::isSigned() { return _signed; }
+int AForm::getSign_grade() { return sign_grade; }
+int AForm::getExec_grade() { return exec_grade; }
+std::string AForm::getName() { return name; }
+bool AForm::isSigned() { return _signed; }
 
-std::ostream& operator<<(std::ostream& out, Form& form) {
-    return out << form.getName() << ", form sign_grade: " << form.getSign_grade()
-               << ", form exec_grade: " << form.getExec_grade()
-               << ", signed status: " << form.isSigned();
+std::ostream& operator<<(std::ostream& out, AForm& aform) {
+    return out << aform.getName() << ", aform sign_grade: " << aform.getSign_grade()
+               << ", aform exec_grade: " << aform.getExec_grade()
+               << ", signed status: " << aform.isSigned();
 }

@@ -4,8 +4,6 @@ Bureaucrat::Bureaucrat() : name("default_name"), grade(100) {
     // print_color("Default Bureaucrat constructor called");
 }
 
-Bureaucrat::Bureaucrat(std::string name) : name(name), grade(100) {}
-
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {
     if (grade < 1) throw Bureaucrat::GradeTooHighException();
     if (grade > 150) throw Bureaucrat::GradeTooLowException();
