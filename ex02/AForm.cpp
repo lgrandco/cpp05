@@ -58,4 +58,43 @@ std::ostream& operator<<(std::ostream& out, AForm& aform) {
     return out << aform.getName() << ", aform sign_grade: " << aform.getSign_grade()
                << ", aform exec_grade: " << aform.getExec_grade()
                << ", signed status: " << aform.isSigned();
-}
+};
+
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <stdlib.h>
+
+void AForm::create_tree(std::string target) const {
+    std::string name = target + "_shrubbery";
+    std::ofstream out(name.c_str());
+    out << "                                                         .\n                           "
+           "                   .         ;  \n                 .              .              ;%    "
+           " ;;   \n                   ,           ,                :;%  %;   \n                   "
+           " :         ;                   :;%;'     .,   \n           ,.        %;     %;         "
+           "   ;        %;'    ,;\n             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n   "
+           "           %;       %;%;      ,  ;       %;  ;%;   ,%;' \n               ;%;      %;   "
+           "     ;%;        % ;%;  ,%;'\n                `%;.     ;%;     %;'         `;%%;.%;'\n  "
+           "               `:;%.    ;%%. %@;        %; ;@%;%'\n                    `:%;.  :;bd%;   "
+           "       %;@%;'\n                      `@%:.  :;%.         ;@@%;'   \n                   "
+           "     `@%.  `;@%.      ;@@%;         \n                          `@%%. `@%%    ;@@%;    "
+           "    \n                            ;@%. :@%%  %@@%;       \n                            "
+           "  %@bd%%%bd%%:;     \n                                #@%%%%%:;;\n                     "
+           "           %@@%%%::;\n                                %@@@%(o);  . '         \n        "
+           "                        %@@@o%;:(.,'         \n                            `.. "
+           "%@@@o%::;         \n                               `)@@@o%::;         \n               "
+           "                 %@@(o)::;        \n                               .%@@@@%::;         "
+           "\n                               ;%@@@@%::;.          \n                              "
+           ";%@@@@%%:;;;. \n                          ...;%@@@@@%%:;;;;,.. "
+        << std::endl;
+    out << "              v .   ._, |_  .,\n           `-._\\/  .  \\ /    |/_\n               "
+           "\\\\  _\\, y | \\//\n         _\\_.___\\\\, \\\\/ -.\\||\n           `7-,--.`._||  / / "
+           ",\n           /'     `-. `./ / |/_.'\n                     |    |//\n                  "
+           "   |_    /\n                     |-   |\n                     |   =|\n                 "
+           "    |    |\n--------------------/ ,  . \\--------._"
+        << std::endl;
+};
+
+void AForm::execute(Bureaucrat const& executor) const {
+    if (executor.getGrade() <= 150) create_tree("abc");
+};

@@ -1,6 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+class Bureaucrat;
+#include "AForm.hpp"
 #include "colors.hpp"
 
 class Bureaucrat {
@@ -15,7 +17,7 @@ public:
     Bureaucrat& operator=(const Bureaucrat&);
     ~Bureaucrat();
     std::string getName();
-    int getGrade();
+    int getGrade() const;
     void upgrade();
     void downgrade();
     void setgrade(int);
@@ -27,6 +29,7 @@ public:
     public:
         virtual const char* what() const throw() { return ("Grade cannot be lower than 150"); };
     };
+    void executeForm(AForm const& form) const;
 };
 
 std::ostream& operator<<(std::ostream&, Bureaucrat&);

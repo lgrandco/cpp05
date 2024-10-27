@@ -26,7 +26,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
 
 std::string Bureaucrat::getName() { return name; }
 
-int Bureaucrat::getGrade() { return grade; }
+int Bureaucrat::getGrade() const { return grade; }
 
 void Bureaucrat::upgrade() {
     --grade;
@@ -47,3 +47,5 @@ void Bureaucrat::setgrade(int grade) {
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
     return out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 }
+
+void Bureaucrat::executeForm(AForm const& form) const { form.execute(*this); };

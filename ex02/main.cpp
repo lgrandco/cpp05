@@ -1,5 +1,6 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
     print_color("ex00 tests");
@@ -50,5 +51,6 @@ int main() {
         print_color(e.what());
     } catch (std::exception& e) { e.what(); };
 
-    return 0;
+    AForm test("abc", 1, 1);
+    a.executeForm(test);
 }

@@ -1,6 +1,8 @@
 NAME = Signed
 
-SRC = main.cpp colors.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+# SRC = main.cpp colors.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp colors.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+
 OBJ = $(SRC:.cpp=.o)
 DEPS = $(SRC:.cpp=.d)
 
