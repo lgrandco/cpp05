@@ -25,28 +25,19 @@ Form::Form(std::string name, int sign_grade, int exec_grade)
 }
 
 void Form::beSigned(Bureaucrat bureaucrat) {
-    if (bureaucrat.getGrade() <= sign_grade) {
-        _signed = true;
-    } else throw Bureaucrat::GradeTooLowException();
+    if (_signed) throw Form::FormAlreadySignedException();
+    if (bureaucrat.getGrade() > sign_grade) throw Bureaucrat::GradeTooLowException();
+    _signed = true;
 }
 
 void Form::signForm(Bureaucrat bureaucrat) {
-    if (_signed)
-        print_color(
-            bureaucrat.getName() + " couldn't sign " + this->name +
-            " because the form is already signed"
-        );
-    else {
-        try {
-            beSigned(bureaucrat);
-            print_color(bureaucrat.getName() + " signed " + this->name);
-        } catch (Bureaucrat::GradeTooLowException& e) {
-            print_color(
-                bureaucrat.getName() + " couldn't sign " + this->name +
-                " because its grade is too low"
-            );
-        } catch (std::exception& e) { e.what(); };
-    }
+
+    try {
+        beSigned(bureaucrat);
+        print_color(bureaucrat.getName() + " signed " + this->name);
+    } catch (std::exception& e) {
+        print_color(bureaucrat.getName() + " couldn't sign " + this->name + " because " + e.what());
+    };
 }
 
 int Form::getSign_grade() { return sign_grade; }
@@ -59,3 +50,9 @@ std::ostream& operator<<(std::ostream& out, Form& form) {
                << ", form exec_grade: " << form.getExec_grade()
                << ", signed status: " << form.isSigned();
 }
+
+const char* Form::FormAlreadySignedException::what() const throw() {
+    return ("form is already signed");
+};
+
+const char* Form::FormNotSignedException::what() const throw() { return ("form is not signed"); };

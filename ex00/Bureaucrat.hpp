@@ -21,11 +21,11 @@ public:
     void setgrade(int);
     class GradeTooHighException : public std::exception {
     public:
-        virtual const char* what() const throw() { return ("Grade cannot be higher than 1"); };
+        virtual const char* what() const throw();
     };
     class GradeTooLowException : public std::exception {
     public:
-        virtual const char* what() const throw() { return ("Grade cannot be lower than 150"); };
+        virtual const char* what() const throw();
     };
 };
 

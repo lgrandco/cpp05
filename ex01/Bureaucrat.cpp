@@ -47,3 +47,9 @@ void Bureaucrat::setgrade(int grade) {
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
     return out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 }
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return ("grade is too high");
+};
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() { return ("grade is too low"); };

@@ -18,7 +18,7 @@ $(NAME) : ${OBJ} Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) -g3 $(OBJ)
 
 clean :
-	$(RM) $(NAME) $(OBJ) $(DEPS)
+	$(RM) $(OBJ) $(DEPS)
 
 fclean : clean
 	$(RM) $(NAME)
