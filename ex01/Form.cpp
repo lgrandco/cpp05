@@ -20,13 +20,13 @@ Form::~Form() { // print_color("Form destructor called");
 
 Form::Form(std::string name, int sign_grade, int exec_grade)
     : name(name), sign_grade(sign_grade), exec_grade(exec_grade), _signed(false) {
-    if (sign_grade < 1 || exec_grade < 1) throw Bureaucrat::GradeTooHighException();
-    if (sign_grade > 150 || exec_grade > 150) throw Bureaucrat::GradeTooLowException();
+    if (sign_grade < 1 || exec_grade < 1) throw Form::GradeTooHighException();
+    if (sign_grade > 150 || exec_grade > 150) throw Form::GradeTooLowException();
 }
 
 void Form::beSigned(Bureaucrat bureaucrat) {
     if (_signed) throw Form::FormAlreadySignedException();
-    if (bureaucrat.getGrade() > sign_grade) throw Bureaucrat::GradeTooLowException();
+    if (bureaucrat.getGrade() > sign_grade) throw Form::GradeTooLowException();
     _signed = true;
 }
 
@@ -56,3 +56,9 @@ const char* Form::FormAlreadySignedException::what() const throw() {
 };
 
 const char* Form::FormNotSignedException::what() const throw() { return ("form is not signed"); };
+
+const char* Form::GradeTooHighException::what() const throw() {
+    return ("Form grade is too high");
+};
+
+const char* Form::GradeTooLowException::what() const throw() { return ("Form grade is too low"); };

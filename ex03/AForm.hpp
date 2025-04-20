@@ -32,6 +32,14 @@ public:
     public:
         virtual const char* what() const throw();
     };
+    class GradeTooHighException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
     void execute(Bureaucrat const& executor) const;
     virtual void doTask() const = 0;
 };

@@ -1,5 +1,6 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -11,33 +12,20 @@ int main() {
     std::cout << get_color() << a << std::endl;
     try {
         a.downgrade();
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        print_color(e.what());
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        print_color(e.what());
-    } catch (std::exception& e) { e.what(); };
+    } catch (std::exception& e) { print_color(e.what()); };
 
     print_color("\ntrying to up the score of a 1 graded bureaucrat ----------------------");
     a.setgrade(1);
     std::cout << get_color() << a << std::endl;
     try {
         a.upgrade();
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        print_color(e.what());
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        print_color(e.what());
-    } catch (std::exception& e) { e.what(); };
+    } catch (std::exception& e) { print_color(e.what()); };
 
     print_color("\ntrying instantiate a bureaucrate with a grade of 200 ----------------------");
     try {
         Bureaucrat b("Bureaucrat with grade 200", 200);
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        print_color(e.what());
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        print_color(e.what());
-    } catch (std::exception& e) { e.what(); };
+    } catch (std::exception& e) { print_color(e.what()); };
 
-    print_color("\nex02 tests");
     ShrubberyCreationForm shrub("test_form");
     shrub.signAForm(a);
     a.executeForm(shrub);
@@ -48,17 +36,16 @@ int main() {
     a.executeForm(rob);
     rob.signAForm(a);
     a.executeForm(rob);
-    // std::cout << get_color() << form_a << std::endl;
-    // form_a.signAForm(Bureaucrat("bureaucrat_too_low", 51));
-    // form_a.signAForm(Bureaucrat("bureaucrat_ok", 50));
-    // form_a.signAForm(Bureaucrat("bureaucrat_ok", 50));
-    // std::cout << get_color() << form_a << std::endl;
-    // print_color("\ntrying instantiate a form with a sign grade of 200 ----------------------");
-    // try {
-    //     AForm form_b("AForm with grade 200", 200, 100);
-    // } catch (Bureaucrat::GradeTooHighException& e) {
-    //     print_color(e.what());
-    // } catch (Bureaucrat::GradeTooLowException& e) {
-    //     print_color(e.what());
-    // } catch (std::exception& e) { e.what(); };
+
+    print_color("\nex03 tests");
+
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("rrrr request", "Bender");
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    if (rrf) {
+        a.executeForm(*rrf);
+        rrf->beSigned(a);
+        a.executeForm(*rrf);
+    }
 }

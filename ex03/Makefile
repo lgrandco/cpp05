@@ -1,6 +1,6 @@
-NAME = Exec
+NAME = Intern
 
-SRC = main.cpp colors.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp colors.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 DEPS = $(SRC:.cpp=.d)
