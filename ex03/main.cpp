@@ -51,5 +51,12 @@ int main() {
         a.executeForm(*rrf);
         a.executeForm(*rrf);
         a.executeForm(*rrf);
+        delete rrf;
     }
+    rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+    a.executeForm(*rrf);
+    delete rrf;
+    rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+    a.executeForm(*rrf);
+    delete rrf;
 }

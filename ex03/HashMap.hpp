@@ -12,7 +12,7 @@ template <typename ValueType>
 class HashMap {
 private:
     std::pair<std::string, ValueType>* buckets[TABLE_SIZE];
-    size_t compute_hash(const std::string& s) { return (s[0] - 'A') % 26; }
+    size_t compute_hash(const std::string& s) { return (500 + s[0] - 'a') % 26; }
 
 public:
     HashMap() {

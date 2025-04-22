@@ -1,5 +1,5 @@
-#ifndef PRESIDENTIALPARDONFORMFORM_HPP
-#define PRESIDENTIALPARDONFORMFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 #include "AForm.hpp"
 #include <fstream>
 #include <iostream>

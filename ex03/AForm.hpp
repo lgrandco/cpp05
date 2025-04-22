@@ -13,7 +13,7 @@ private:
 
 public:
     AForm(/* args */);
-    ~AForm();
+    virtual ~AForm();
     AForm(const AForm&);
     AForm& operator=(const AForm&);
     AForm(std::string, int, int);
