@@ -11,19 +11,19 @@ int main() {
     std::cout << get_color() << a << std::endl;
     try {
         a.downgrade();
-    } catch (std::exception& e) { print_color(e.what()); };
+    } catch (std::exception& e) { print_color(e.what(), std::cerr); };
 
     print_color("\ntrying to up the score of a 1 graded bureaucrat ----------------------");
     a.setgrade(1);
     std::cout << get_color() << a << std::endl;
     try {
         a.upgrade();
-    } catch (std::exception& e) { print_color(e.what()); };
+    } catch (std::exception& e) { print_color(e.what(), std::cerr); };
 
     print_color("\ntrying instantiate a bureaucrate with a grade of 200 ----------------------");
     try {
         Bureaucrat b("Bureaucrat with grade 200", 200);
-    } catch (std::exception& e) { print_color(e.what()); };
+    } catch (std::exception& e) { print_color(e.what(), std::cerr); };
 
     print_color("\nex02 tests");
     ShrubberyCreationForm shrub("test_form");

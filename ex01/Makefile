@@ -1,13 +1,15 @@
 NAME = Signed
 
-SRC = main.cpp colors.cpp Bureaucrat.cpp Form.cpp
+SRC = ../colors.cpp main.cpp Bureaucrat.cpp Form.cpp
+INC = -I..
+
 OBJ = $(SRC:.cpp=.o)
 DEPS = $(SRC:.cpp=.d)
 
 CC = cc
 CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -MMD -MP -g3
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -g3 $(INC)
 CXXFLAGS = $(CFLAGS) --std=c++98
 
 RM = rm -f

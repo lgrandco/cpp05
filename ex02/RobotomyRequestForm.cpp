@@ -2,6 +2,11 @@
 
 void RobotomyRequestForm::doTask() const {
     print_color("*Rrrrrrr*");
+    static bool first = true;
+    if (first) {
+        srand(time(NULL));
+        first = false;
+    }
     if (rand() % 2) print_color(_target + " has successfully been robotomized");
     else print_color("the robotomy of " + _target + " has failed");
 };
