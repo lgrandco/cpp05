@@ -19,7 +19,6 @@ public:
     AForm(std::string, int, int);
 
     void beSigned(Bureaucrat);
-    void signAForm(Bureaucrat);
     int getSign_grade();
     int getExec_grade();
     std::string getName() const;

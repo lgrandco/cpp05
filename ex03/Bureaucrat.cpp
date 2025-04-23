@@ -9,9 +9,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {
     if (grade > 150) throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : name(src.name), grade(src.grade) {
     // print_color("Default Bureaucrat copy constructor called");
-    *this = src;
 }
 
 Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
@@ -67,3 +66,12 @@ void Bureaucrat::executeForm(AForm const& form) const {
         );
     }
 };
+
+void Bureaucrat::signForm(AForm& Form) {
+    try {
+        Form.beSigned(*this);
+        print_color(getName() + " signed " + this->name);
+    } catch (std::exception& e) {
+        print_color(getName() + " couldn't sign " + this->name + " because " + e.what(), std::cerr);
+    };
+}

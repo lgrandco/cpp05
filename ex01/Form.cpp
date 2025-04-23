@@ -30,19 +30,6 @@ void Form::beSigned(Bureaucrat bureaucrat) {
     _signed = true;
 }
 
-void Form::signForm(Bureaucrat bureaucrat) {
-
-    try {
-        beSigned(bureaucrat);
-        print_color(bureaucrat.getName() + " signed " + this->name);
-    } catch (std::exception& e) {
-        print_color(
-            bureaucrat.getName() + " couldn't sign " + this->name + " because " + e.what(),
-            std::cerr
-        );
-    };
-}
-
 int Form::getSign_grade() { return sign_grade; }
 int Form::getExec_grade() { return exec_grade; }
 std::string Form::getName() { return name; }

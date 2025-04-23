@@ -1,6 +1,7 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
+class Bureaucrat;
 #include "Bureaucrat.hpp"
 #include "colors.hpp"
 class Form {
@@ -17,7 +18,6 @@ public:
     Form& operator=(const Form&);
     Form(std::string, int, int);
     void beSigned(Bureaucrat);
-    void signForm(Bureaucrat);
     int getSign_grade();
     int getExec_grade();
     std::string getName();

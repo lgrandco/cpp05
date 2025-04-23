@@ -9,19 +9,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {
     if (grade > 150) throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : name(src.name), grade(src.grade) {
     // print_color("Default Bureaucrat copy constructor called");
-    *this = src;
+    // *this = src;
 }
 
 Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
-}
-
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
-    // print_color("Bureaucrat Copy assignement operator called");
-    grade = src.grade;
-    const_cast<std::string&>(name) = src.name;
-    return *this;
 }
 
 std::string Bureaucrat::getName() { return name; }
