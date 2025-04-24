@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) {
 Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
 }
 
-std::string Bureaucrat::getName() const { return name; }
+const std::string& Bureaucrat::getName() const { return name; }
 
 int Bureaucrat::getGrade() const { return grade; }
 

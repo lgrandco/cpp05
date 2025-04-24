@@ -16,8 +16,8 @@ public:
     Bureaucrat(std::string, int);
     Bureaucrat(const Bureaucrat&);
     ~Bureaucrat();
-    std::string getName();
-    int getGrade();
+    const std::string& getName() const;
+    int getGrade() const;
     void upgrade();
     void downgrade();
     void setgrade(int);

@@ -30,10 +30,10 @@ void AForm::beSigned(Bureaucrat bureaucrat) {
     _signed = true;
 }
 
-int AForm::getSign_grade() { return sign_grade; }
-int AForm::getExec_grade() { return exec_grade; }
-std::string AForm::getName() const { return name; }
-bool AForm::isSigned() { return _signed; }
+int AForm::getSign_grade() const { return sign_grade; }
+int AForm::getExec_grade() const { return exec_grade; }
+const std::string& AForm::getName() const { return name; }
+bool AForm::isSigned() const { return _signed; }
 
 std::ostream& operator<<(std::ostream& out, AForm& aform) {
     return out << aform.getName() << ", aform sign_grade: " << aform.getSign_grade()

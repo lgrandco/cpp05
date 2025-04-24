@@ -16,7 +16,7 @@ public:
     Bureaucrat(std::string, int);
     Bureaucrat(const Bureaucrat&);
     ~Bureaucrat();
-    std::string getName() const;
+    const std::string& getName() const;
     int getGrade() const;
     void signForm(AForm& Form);
     void upgrade();

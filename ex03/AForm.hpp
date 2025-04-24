@@ -19,10 +19,10 @@ public:
     AForm(std::string, int, int);
 
     void beSigned(Bureaucrat);
-    int getSign_grade();
-    int getExec_grade();
-    std::string getName() const;
-    bool isSigned();
+    int getSign_grade() const;
+    int getExec_grade() const;
+    const std::string& getName() const;
+    bool isSigned() const;
     class FormNotSignedException : public std::exception {
     public:
         virtual const char* what() const throw();
