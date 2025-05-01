@@ -14,6 +14,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) : name(src.name), grade(src.grade)
     // *this = src;
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
+    // print_color("Bureaucrat copy assignment operator called");
+    if (this != &src) { this->grade = src.grade; }
+    return *this;
+}
+
 Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
 }
 

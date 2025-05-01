@@ -9,9 +9,6 @@ Form::Form(const Form& src)
 
 Form& Form::operator=(const Form& src) {
     _signed = src._signed;
-    const_cast<std::string&>(name) = src.name;
-    const_cast<int&>(sign_grade) = src.sign_grade;
-    const_cast<int&>(exec_grade) = src.exec_grade;
     return *this;
 }
 

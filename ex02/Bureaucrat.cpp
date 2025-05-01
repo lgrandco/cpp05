@@ -14,6 +14,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) {
     *this = src;
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
+    // print_color("Bureaucrat copy assignment operator called");
+    if (this != &src) { this->grade = src.grade; }
+    return *this;
+}
+
 Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
 }
 
@@ -64,8 +70,11 @@ void Bureaucrat::executeForm(AForm const& form) const {
 void Bureaucrat::signForm(AForm& Form) {
     try {
         Form.beSigned(*this);
-        print_color(getName() + " signed " + this->name);
+        print_color(getName() + " signed " + Form.getName());
     } catch (std::exception& e) {
-        print_color(getName() + " couldn't sign " + this->name + " because " + e.what(), std::cerr);
+        print_color(
+            getName() + " couldn't sign " + Form.getName() + " because " + e.what(),
+            std::cerr
+        );
     };
 }
