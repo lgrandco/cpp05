@@ -19,7 +19,6 @@ Bureaucrat::~Bureaucrat() { // print_color("Bureaucrat destructor called");
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
     // print_color("Bureaucrat Copy assignement operator called");
     grade = src.grade;
-    const_cast<std::string&>(name) = src.name;
     return *this;
 }
 
